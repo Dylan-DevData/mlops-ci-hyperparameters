@@ -32,7 +32,7 @@ jobs:
 
       - name: Run DVC pipeline
         run: |
-          dvc pull
+          
           dvc repro train
       
       - name: Create CML report
