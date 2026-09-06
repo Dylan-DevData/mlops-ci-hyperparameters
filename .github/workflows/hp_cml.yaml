@@ -8,7 +8,6 @@ permissions: write-all
 
 jobs:
   hp_tune:
-    # Ne se déclenche que si la PR vient d'une branche de tuning
     if: startsWith(github.head_ref, 'hp_tune/')
     runs-on: ubuntu-latest
     steps:
@@ -24,7 +23,9 @@ jobs:
         uses: iterative/setup-dvc@v1
 
       - name: Setup CML
-        uses: iterative/setup-cml@v1
+        uses: iterative/setup-cml@v2
+        with:
+          vega: false
 
       - name: Install dependencies
         run: pip install -r requirements.txt
